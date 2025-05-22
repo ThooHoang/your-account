@@ -37,11 +37,11 @@ class ErrorBoundary extends StrictMode {
 const root = document.getElementById('root');
 if (root) {
   createRoot(root).render(
-    <ErrorBoundary>
+    <StrictMode>
       <HashRouter>
         <App />
       </HashRouter>
-    </ErrorBoundary>
+    </StrictMode>
   );
 } else {
   document.body.innerHTML = '<div style="color:red;padding:20px;">Error: Root element not found</div>';
