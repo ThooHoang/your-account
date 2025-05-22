@@ -7,6 +7,7 @@ const AccountHeader = ({ onEditProfile }) => {
   const { user } = useUser();
   const { texts } = useLanguage();
   
+  // Use the background image directly (it's already imported)
   const headerStyle = {
     background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${background})`,
     backgroundSize: 'cover',

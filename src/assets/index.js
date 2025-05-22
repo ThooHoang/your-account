@@ -7,7 +7,10 @@ import vector5 from './Vector-5.png';
 import vector6 from './Vector-6.png';
 import vector7 from './Vector-7.png';
 import janek from './janek.png';
-import background from './background.png'; // Ensure this file exists
+import background from './background.png';
+
+// Add this function that was being imported but was missing
+const assetUrl = (path) => new URL(path, import.meta.url).href;
 
 // Use direct imports to avoid path issues in production
 export {
@@ -20,5 +23,6 @@ export {
   vector6,
   vector7,
   janek,
-  background
+  background,
+  assetUrl // Export the function that was missing
 };
