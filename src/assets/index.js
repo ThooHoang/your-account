@@ -7,11 +7,9 @@ import vector5 from './Vector-5.png';
 import vector6 from './Vector-6.png';
 import vector7 from './Vector-7.png';
 import janek from './janek.png';
-import background from './background.png'; // Make sure this file exists
+import background from './background.png'; // Ensure this file exists
 
-// Use dynamic import.meta.url for asset loading in production
-const assetUrl = (path) => new URL(path, import.meta.url).href;
-
+// Use direct imports to avoid path issues in production
 export {
   vector,
   vector1,
@@ -22,6 +20,5 @@ export {
   vector6,
   vector7,
   janek,
-  background,
-  assetUrl // Export the helper function
+  background
 };
