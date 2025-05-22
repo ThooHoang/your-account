@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { HashRouter } from 'react-router-dom' // Import HashRouter if using routes
+import { HashRouter } from 'react-router-dom' // Change to HashRouter
 import './styles.css'
 import App from './App.jsx'
 
@@ -38,7 +38,6 @@ const root = document.getElementById('root');
 if (root) {
   createRoot(root).render(
     <ErrorBoundary>
-      {/* Use HashRouter for GitHub Pages compatibility if you have routes */}
       <HashRouter>
         <App />
       </HashRouter>
