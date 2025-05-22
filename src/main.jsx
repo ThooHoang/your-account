@@ -3,8 +3,43 @@ import { createRoot } from 'react-dom/client'
 import './styles.css'
 import App from './App.jsx'
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+// Add error boundary for better debugging on GitHub Pages
+class ErrorBoundary extends StrictMode {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("React Error:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: '20px', color: 'red' }}>
+          <h2>Something went wrong.</h2>
+          <details style={{ whiteSpace: 'pre-wrap' }}>
+            {this.state.error && this.state.error.toString()}
+          </details>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+const root = document.getElementById('root');
+if (root) {
+  createRoot(root).render(
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  );
+} else {
+  document.body.innerHTML = '<div style="color:red;padding:20px;">Error: Root element not found</div>';
+}

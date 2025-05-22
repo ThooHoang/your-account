@@ -1,5 +1,5 @@
 import React from 'react';
-import { background } from '../assets';
+import { janek, background, assetUrl } from '../assets';
 import { useUser } from '../context/UserContext';
 import { useLanguage } from '../context/LanguageContext';
 
