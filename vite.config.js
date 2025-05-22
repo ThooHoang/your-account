@@ -4,11 +4,15 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  // Add base path for GitHub Pages - use your repository name
-  base: '/your-account/', // Replace with your actual repository name if different
+  base: './', // This is crucial for GitHub Pages deployment
   build: {
-    outDir: 'dist',
-    // Ensure proper sourcemapping for debugging
-    sourcemap: true,
-  },
+    // Ensure correct output file names and formats
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
+      }
+    }
+  }
 })
